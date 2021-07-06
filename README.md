@@ -1,4 +1,4 @@
-# sIScAD 
+# SisCad 
 
 Para execução do projeto é necessário realizar o seguinte passo:
 
