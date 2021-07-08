@@ -30,6 +30,8 @@ update-database -context SisCadContext
 - Entity Framework Core 5
 - SQL Server
 - Autenticação no sistema com Identity com JWT
+- Unit Of Work
+- Eventos de Notificações
 
 ## Usuário Padrão
 - Login: siscadinc@gmail.com
