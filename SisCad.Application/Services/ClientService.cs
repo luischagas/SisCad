@@ -5,8 +5,10 @@ using SisCad.Domain.Interfaces.Repositories;
 using SisCad.Domain.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using SisCad.Application.Interfaces;
+using SisCad.Application.Models.Contact;
 
 namespace SisCad.Application.Services
 {
@@ -92,6 +94,19 @@ namespace SisCad.Application.Services
                     Address = client.Address,
                     Status = client.Status
                 };
+
+                if (client.Contacts.Any())
+                {
+                    foreach (var contact in client.Contacts)
+                    {
+                        clientModel.Contatos.Add(new ContactDataModel()
+                        {
+                            Id = contact.Id,
+                            Value = contact.Value,
+                            Type = contact.Type
+                        });
+                    }
+                }
             }
 
             return clientModel;

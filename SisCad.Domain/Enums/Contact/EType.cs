@@ -2,7 +2,7 @@
 
 namespace SisCad.Domain.Enums.Contact
 {
-    public enum ETypePhone
+    public enum EType
     {
         [Display(Name = "Celular")]
         Cellular = 1,

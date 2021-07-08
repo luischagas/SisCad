@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SisCad.Application.Interfaces;
+using SisCad.Application.Services;
 using SisCad.Domain.Interfaces.Notification;
 using SisCad.Domain.Interfaces.Repositories;
 using SisCad.Domain.Interfaces.Services;
@@ -21,15 +23,10 @@ namespace SisCad.Infrastructure.CrossCutting.IoC
             services.AddScoped<INotifier, Notifier>();
             services.AddScoped<IUnitOfWork, UnitOfWork.UnitOfWork>();
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IEmailService, EmailService>();
-            //services.AddScoped<IHealthInsuranceRepository, HealthInsuranceRepository>();
-            //services.AddScoped<IHealthInsuranceService, HealthInsuranceService>();
-            //services.AddScoped<IAttendantRepository, AttendantRepository>();
-            //services.AddScoped<IAttendantService, AttendantService>();
-            //services.AddScoped<IPatientRepository, PatientRepository>();
-            //services.AddScoped<IPatientService, PatientService>();
-            //services.AddScoped<ISchedulingRepository, SchedulingRepository>();
-            //services.AddScoped<ISchedulingService, SchedulingService>();
+            services.AddScoped<IClienteService, ClientService>();
+            services.AddScoped<IContactService, ContactService>();
 
             return services;
         }

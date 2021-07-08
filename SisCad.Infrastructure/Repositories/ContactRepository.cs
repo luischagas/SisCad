@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SisCad.Domain.Entities;
+using SisCad.Domain.Enums.Contact;
 using SisCad.Domain.Interfaces.Repositories;
 using SisCad.Infrastructure.Context;
 
@@ -46,7 +47,14 @@ namespace SisCad.Infrastructure.Repositories
         public async Task<Contact> GetAsync(Guid id)
         {
             return await _contacts
-                .FirstOrDefaultAsync(d => d.Id == id);
+                .Include(c => c.Client)
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task<Contact> GetAsync(string value, EType type)
+        {
+            return await _contacts
+                .FirstOrDefaultAsync(c => c.Value == value && c.Type == type);
         }
 
         public void Update(Contact contact)

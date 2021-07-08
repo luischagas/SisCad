@@ -1,0 +1,16 @@
+﻿@model IEnumerable<SisCad.Application.Models.Contact.ContactDataModel>
+
+@{
+    ViewData["Title"] = "Lista de Contatos";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<vc:Summary></vc:Summary>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Novo Contato</a>
+</p>
+
+<partial name="_ListContacts"/>

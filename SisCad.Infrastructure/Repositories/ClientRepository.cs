@@ -43,6 +43,7 @@ namespace SisCad.Infrastructure.Repositories
         public async Task<Client> GetAsync(Guid id)
         {
             return await _clients
+                .Include(c => c.Contacts)
                 .FirstOrDefaultAsync(d => d.Id == id);
         }
 

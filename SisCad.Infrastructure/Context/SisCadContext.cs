@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SisCad.Domain.Entities;
 using System.Linq;
+using SisCad.Infrastructure.Mappings;
 
 namespace SisCad.Infrastructure.Context
 {
@@ -29,6 +30,9 @@ namespace SisCad.Infrastructure.Context
                 .SelectMany(e => e.GetProperties()
                     .Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
+
+            modelBuilder.ApplyConfiguration(new ClientMapping());
+            modelBuilder.ApplyConfiguration(new ContactMapping());
         }
 
         #endregion Methods
